@@ -147,7 +147,7 @@
             // 添加方式的不同
             if (target_element.length>0) {
                 tmp_html = target_element[0].getInnerHTML();
-                add_html = '<div class="if_preview" style="font-size:13px">'+publication_name_dict[paper_id]+'<br><strong>IF: '+publication_info.IF+'</strong><br><a href="'+publication_info.URL+'" target="_blank">查看详情</a></div>';
+                add_html = '<div class="if_preview" style="font-size:13px">'+publication_name_dict[paper_id]+'<br><strong>IF: '+publication_info.IF+'</strong><br><a href="'+publication_info.URL+'" target="_blank">View Detail</a></div>';
                 target_element[0].innerHTML = tmp_html + add_html;
                 return true;
             }
