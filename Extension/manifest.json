@@ -1,0 +1,52 @@
+{
+	"manifest_version": 3,
+	"name": "IF Preview",
+	"version": "1.0.0",
+	"description": "为谷歌学术搜索加上影响因子！",
+	"homepage_url": "https://www.baidu.com",
+	"icons":
+	{
+		"16": "img/icon_16.png",
+		"48": "img/icon_48.png",
+		"128": "img/icon_128.png",
+		"300": "img/icon_300.png"
+	},
+	"action": 
+	{
+		"default_icon": {
+			"16": "img/icon_16.png",
+			"48": "img/icon_48.png",
+			"128": "img/icon_128.png",
+			"300": "img/icon_300.png"
+		},
+		"default_title": "这是一个示例Chrome插件",
+		"default_popup": "popup.html"
+	},
+	"background": {
+		"service_worker": "background.js"
+	},
+	"content_scripts": 
+	[
+		{
+			"matches": ["https://scholar.google.com/*", "https://scholar.google.com.hk/*"],
+			"js": ["js/google_scholar.js"],
+			"run_at": "document_idle"
+		},
+		{
+			"matches": ["https://dblp.uni-trier.de/*"],
+			"js": ["js/showCCF.js"]
+		}
+	],
+	"permissions":
+	[
+		"contextMenus",
+		"tabs",
+		"storage",
+		"unlimitedStorage"
+	],
+	"host_permissions": [
+		"https://scholar.google.com/*",
+		"https://api.scholarscope.cn/*",
+		"https://dblp.uni-trier.de/*"
+	]
+}
